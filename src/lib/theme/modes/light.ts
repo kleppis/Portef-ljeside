@@ -1,8 +1,8 @@
 import { colors } from "../colors";
 
 export const lightTheme = {
-  primary: "#1d4ed8",
-  secondary: "#64748b",
-  background: colors.blue[100],
-  text: "#1f2937",
+  primary: colors.stone[800],
+  secondary: colors.blue[200],
+  background: colors.blue[50],
+  text: colors.stone[800],
 };

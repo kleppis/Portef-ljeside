@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 import { createThemes } from "tw-colors";
+import { lightTheme } from "./src/lib/theme/modes/light";
+import { darkTheme } from "./src/lib/theme/modes/dark";
 
 export default {
   darkMode: "class", // Bruk "class" for å aktivere dark mode med klassen 'dark'
@@ -23,21 +25,16 @@ export default {
       borderRadius: {
         xl: "1.5rem", // Ny grense for hjørneradius
       },
+      fontFamily: {
+        "walter-turncoat": ['"Walter Turncoat"', "serif"],
+      },
     },
   },
   plugins: [
     createThemes(
       {
-        light: {
-          background: "#ffffff", // Lys bakgrunn
-          text: "#1f2937", // Mørk tekst
-          primary: "#1d4ed8", // Lys primærfarge
-        },
-        dark: {
-          background: "#1e293b", // Mørk bakgrunn
-          text: "#f1f5f9", // Lys tekst
-          primary: "#2563eb", // Mørk primærfarge
-        },
+        light: lightTheme,
+        dark: darkTheme,
       },
       { defaultTheme: "light" } // Sett standard tema
     ),
