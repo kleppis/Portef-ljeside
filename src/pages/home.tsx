@@ -1,25 +1,21 @@
-import SlideIn from "../components/slideIn";
+const Home = () => {
+  return (
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <div className="space-x-24">
+        <a className="relative group text-7xl font-semibold text-gray-800">
+          Om oss
+          <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-secondary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a
+          href="/prosjekter"
+          className="relative group text-7xl font-semibold text-gray-800"
+        >
+          Prosjekter
+          <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-secondary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      </div>
+    </div>
+  );
+};
 
-export const Home: React.FC = () => (
-  <>
-    <div className="bg-background text-text min-h-screen flex flex-col items-center justify-center">
-      <h1 className="">Welcome to Home Page</h1>
-      <a href="/contact">Contact</a>
-      <a href="/about">About</a>
-    </div>
-    <div className="min-h-screen flex flex-col items-center justify-center space-y-8">
-      <h1 className="text-4xl font-bold">Scroll ned for å se animasjon</h1>
-      <div className="h-[200vh]"></div> {/* Simulerer en høy side */}
-      <SlideIn>
-        <div className="p-6 bg-primary text-white rounded shadow-md">
-          Dette er en boks som sklir inn!
-        </div>
-      </SlideIn>
-      <SlideIn>
-        <div className="p-6 bg-secondary text-white rounded shadow-md">
-          Enda en boks med animasjon!
-        </div>
-      </SlideIn>
-    </div>
-  </>
-);
+export default Home;
