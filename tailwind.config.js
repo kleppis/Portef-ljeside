@@ -11,6 +11,20 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        "bounce-x": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(10px)" },
+        },
+        "bounce-x-left": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(-10px)" },
+        },
+      },
+      animation: {
+        "bounce-x": "bounce-x 1s infinite",
+        "bounce-x-left": "bounce-x-left 1s infinite",
+      },
       colors: {
         // Eksempler på custom farger
         primary: "#1d4ed8", // Blå for lys modus

@@ -5,4 +5,5 @@ export const darkTheme = {
   secondary: "#94a3b8", // Lys grå
   background: colors.stone[900], // Mørk blå
   text: colors.blue[300],
+  divider: colors.stone[500],
 };

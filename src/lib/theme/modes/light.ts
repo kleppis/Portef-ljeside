@@ -5,4 +5,5 @@ export const lightTheme = {
   secondary: colors.blue[200],
   background: colors.green[100],
   text: colors.stone[800],
+  divider: colors.stone[500],
 };

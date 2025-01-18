@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { SlideBox } from "../components/slideBox";
 
 const Prosjekter: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,41 +14,21 @@ const Prosjekter: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 overflow-hidden">
-      <div className="flex space-x-8">
-        {/* Prosjekt 1 */}
-        <div
-          className={`w-64 h-64 bg-blue-500 text-white flex items-center justify-center rounded-lg shadow-lg transition-transform duration-700 ${
-            isVisible
-              ? "translate-x-0 opacity-100"
-              : "translate-x-full opacity-0"
-          }`}
-        >
-          <h2 className="text-xl font-bold">Prosjekt 1</h2>
-        </div>
-
-        {/* Prosjekt 2 */}
-        <div
-          className={`w-64 h-64 bg-green-500 text-white flex items-center justify-center rounded-lg shadow-lg transition-transform duration-700 delay-200 ${
-            isVisible
-              ? "translate-x-0 opacity-100"
-              : "translate-x-full opacity-0"
-          }`}
-        >
-          <h2 className="text-xl font-bold">Prosjekt 2</h2>
-        </div>
-
-        {/* Prosjekt 3 */}
-        <div
-          className={`w-64 h-64 bg-red-500 text-white flex items-center justify-center rounded-lg shadow-lg transition-transform duration-1000 delay-400 ${
-            isVisible
-              ? "translate-x-0 opacity-100"
-              : "translate-x-[50vw] opacity-0"
-          }`}
-        >
-          <h2 className="text-xl font-bold">Prosjekt 3</h2>
-        </div>
-      </div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 overflow-hidden space-x-5">
+      <SlideBox>
+        <h1 className="text-4xl font-bold">Prosjekter</h1>
+        <p>
+          Dette er prosjektsiden. Her kan du vise frem prosjekter du har jobbet
+          med.
+        </p>
+      </SlideBox>
+      <SlideBox delay={200}>
+        <h1 className="text-4xl font-bold">Prosjekter</h1>
+        <p>
+          Dette er prosjektsiden. Her kan du vise frem prosjekter du har jobbet
+          med.
+        </p>
+      </SlideBox>
     </div>
   );
 };
