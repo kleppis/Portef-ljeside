@@ -1,18 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { SlideBox } from "../components/slideBox";
 
 const Prosjekter: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    // Trigger animasjonen etter at siden åpnes
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 100); // Forsinkelse på 100ms for å sikre jevn innlasting
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 overflow-hidden space-x-5">
       <SlideBox>
