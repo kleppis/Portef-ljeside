@@ -6,4 +6,7 @@ export const lightTheme = {
   background: colors.green[100],
   text: colors.stone[800],
   divider: colors.stone[500],
+  button: {
+    textHover: colors.stone[400],
+  },
 };

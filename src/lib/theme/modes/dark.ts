@@ -6,4 +6,7 @@ export const darkTheme = {
   background: colors.stone[900], // Mørk blå
   text: colors.blue[300],
   divider: colors.stone[500],
+  button: {
+    textHover: colors.stone[800],
+  },
 };
