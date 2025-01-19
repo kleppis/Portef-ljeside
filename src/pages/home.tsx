@@ -22,7 +22,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       {/* Om oss */}
       <a
         onClick={() => handleClick("/contact")}
-        className="relative group text-7xl font-semibold text-gray-800 flex items-center cursor-pointer transition-colors hover:text-button-textHover "
+        className={`relative group text-7xl font-semibold text-gray-800 flex items-center cursor-pointer transition-all duration-500 hover:text-button-textHover ${
+          clicked === "/contact" ? "-translate-x-[50vw]" : ""
+        }`}
       >
         <FaArrowLeft
           className={`inline-block ml-2 transition-transform duration-500 ${
