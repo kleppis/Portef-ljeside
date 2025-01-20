@@ -7,7 +7,7 @@ export const darkTheme = {
   text: colors.blue[300],
   divider: colors.stone[500],
   button: {
-    textHover: colors.stone[800],
+    textHover: colors.stone[200],
   },
   link: colors.blue[500],
 };

@@ -1,13 +1,26 @@
 import React from "react";
 import { SlideBox } from "../components/slideBox";
 import SlideIn from "../components/slideIn";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const Prosjekter: React.FC = () => {
   return (
     <>
       <div className="bg-background min-h-screen">
-        <h1 className="text-center py-16 drop-shadow-lg">Prosjekter</h1>
+        <div className="flex py-16 justify-center w-full items-center">
+          <div className="absolute left-10 top-20 group/back">
+            <SlideIn>
+              <a href="/" className=" text-3xl ">
+                <FaArrowLeft
+                  size={20}
+                  className="inline-block ms-2 group-hover/back:animate-bounce-x-left"
+                />
+                Tilbake
+              </a>
+            </SlideIn>
+          </div>
+          <h1 className="text-center  drop-shadow-lg uppercase ">Prosjekter</h1>
+        </div>
         <div className=" flex items-center justify-center overflow-hidden space-x-5 py-36">
           <SlideBox>
             <div className="w-full h-full rounded-lg p-6 group/box">
