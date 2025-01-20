@@ -10,7 +10,7 @@ const Prosjekter: React.FC = () => {
         <div className="flex py-16 justify-center w-full items-center">
           <div className="absolute left-10 top-20 group/back">
             <SlideIn>
-              <a href="/" className=" text-3xl ">
+              <a href="/" className=" text-3xl hover:opacity-80 transition-all">
                 <FaArrowLeft
                   size={20}
                   className="inline-block ms-2 group-hover/back:animate-bounce-x-left"
@@ -75,11 +75,18 @@ const Prosjekter: React.FC = () => {
             </div>
           </SlideBox>
           <SlideBox delay={300}>
-            <h1 className="text-4xl font-bold">Prosjekter</h1>
-            <p>
-              Dette er prosjektsiden. Her kan du vise frem prosjekter du har
-              jobbet med.
-            </p>
+            <div className="p-6">
+              <img
+                src="src/assets/logo/hv_grønn.svg"
+                alt="logo"
+                className="absolute -top-5 w-10 -left-5 drop-shadow-lg  aspect-square"
+              />
+              <h2 className="text-4xl font-bold">Kleppan IT</h2>
+              <p>
+                Dette er prosjektsiden. Her kan du vise frem prosjekter du har
+                jobbet med.
+              </p>
+            </div>
           </SlideBox>
         </div>
       </div>
