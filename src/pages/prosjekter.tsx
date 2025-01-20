@@ -1,19 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { SlideBox } from "../components/slideBox";
 import SlideIn from "../components/slideIn";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-const Prosjekter: React.FC = () => {
+interface ProsjekterProps {
+  onNavigate: (path: string) => void;
+}
+
+const Prosjekter: React.FC<ProsjekterProps> = ({ onNavigate }) => {
+  const [clicked, setClicked] = useState<string | null>(null);
+
+  const handleClick = (path: string) => {
+    if (!clicked) {
+      setClicked(path);
+      setTimeout(() => {
+        onNavigate(path);
+      }, 100); // Gir nok tid til at animasjonen fullføres
+    }
+  };
   return (
     <>
       <div className="bg-background min-h-screen">
         <div className="flex py-16 justify-center w-full items-center">
-          <div className="absolute left-10 top-20 group/back">
+          <div className="absolute left-10 top-20">
             <SlideIn>
-              <a href="/" className=" text-3xl hover:opacity-80 transition-all">
+              <a
+                onClick={() => handleClick("/")}
+                className={`text-3xl hover:opacity-80 transition-all cursor-pointer ${
+                  clicked === "/" ? "-translate-x-[50vw]" : ""
+                }`}
+              >
                 <FaArrowLeft
                   size={20}
-                  className="inline-block ms-2 group-hover/back:animate-bounce-x-left"
+                  className={`inline-block ml-2 transition-transform duration-500 ${
+                    clicked === "/" ? "-translate-x-[50vw]" : ""
+                  }`}
                 />
                 Tilbake
               </a>
@@ -82,10 +103,18 @@ const Prosjekter: React.FC = () => {
                 className="absolute -top-5 w-10 -left-5 drop-shadow-lg  aspect-square"
               />
               <h2 className="text-4xl font-bold">Kleppan IT</h2>
-              <p>
-                Dette er prosjektsiden. Her kan du vise frem prosjekter du har
-                jobbet med.
-              </p>
+              <SlideIn delay={10}>
+                <a
+                  href="https://www.kleppanit.no/"
+                  className="text-link flex group/link items-center"
+                >
+                  kleppanit.no
+                  <FaArrowRight
+                    className="group-hover/link:animate-bounce-x ms-2"
+                    size={10}
+                  />
+                </a>
+              </SlideIn>
             </div>
           </SlideBox>
         </div>

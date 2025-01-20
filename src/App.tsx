@@ -35,7 +35,10 @@ const AppRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<Home onNavigate={handleNavigation} />} />
-      <Route path="/prosjekter" element={<Prosjekter />} />
+      <Route
+        path="/prosjekter"
+        element={<Prosjekter onNavigate={handleNavigation} />}
+      />
       <Route path="/contact" element={<Contact />} />
     </Routes>
   );

@@ -16,6 +16,6 @@
     @apply text-base text-text font-walter-turncoat;
   }
   a {
-    @apply text-text font-walter-turncoat;
+    @apply text-text font-walter-turncoat hover:text-button-textHover;
   }
 }
