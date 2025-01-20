@@ -9,4 +9,5 @@ export const lightTheme = {
   button: {
     textHover: colors.stone[400],
   },
+  link: colors.blue[500],
 };

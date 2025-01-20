@@ -21,7 +21,7 @@ export const SlideBox: React.FC<SlideBoxProps> = ({
   }, [delay]);
   return (
     <div
-      className={`w-96 h-96 border-divider border-[1px] rounded-lg shadow-lg p-6 transition-transform duration-700 ${
+      className={`w-96 h-96 border-divider border-[1px] rounded-lg shadow-lg transition-transform duration-700 ${
         isVisible ? "translate-x-0 opacity-100" : "translate-x-[90vw] opacity-0"
       }`}
     >

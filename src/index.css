@@ -4,7 +4,7 @@
 
 @layer utilities {
   h1 {
-    @apply text-6xl text-text font-walter-turncoat;
+    @apply text-7xl text-text font-walter-turncoat;
   }
   h2 {
     @apply text-3xl text-text;

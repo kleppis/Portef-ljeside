@@ -9,4 +9,5 @@ export const darkTheme = {
   button: {
     textHover: colors.stone[800],
   },
+  link: colors.blue[500],
 };

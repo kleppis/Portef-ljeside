@@ -18,7 +18,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100 space-x-10 overflow-hidden">
+    <div className="flex items-center justify-center h-screen bg-background space-x-10 overflow-hidden">
       {/* Om oss */}
       <a
         onClick={() => handleClick("/contact")}
