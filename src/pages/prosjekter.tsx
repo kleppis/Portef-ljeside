@@ -8,25 +8,25 @@ const Prosjekter: React.FC = () => {
     <>
       <div className="bg-background min-h-screen">
         <h1 className="text-center py-16 drop-shadow-lg">Prosjekter</h1>
-        <div className=" flex items-center justify-center overflow-hidden space-x-5 py-10">
+        <div className=" flex items-center justify-center overflow-hidden space-x-5 py-36">
           <SlideBox>
-            <div className="w-full h-full rounded-lg p-6 group">
+            <div className="w-full h-full rounded-lg p-6 group/box">
               <img
                 src="src/assets/images/S&M3.svg"
                 alt="logo"
-                className="absolute -top-5 w-10 -left-5 group-hover:animate-spin drop-shadow-lg"
+                className="absolute -top-5 w-10 -left-5 drop-shadow-lg"
               />
               <div className="flex flex-col h-full justify-between">
                 <div>
-                  <h1 className="text-4xl font-bold">Maria & Sebastian</h1>
+                  <h2 className="text-4xl font-bold">Maria & Sebastian</h2>
                   <SlideIn delay={200}>
                     <a
                       href="https://www.maria-sebastian.no/"
-                      className="text-link flex group items-center"
+                      className="text-link flex group/link items-center"
                     >
                       maria-sebastian.no
                       <FaArrowRight
-                        className="group-hover:animate-bounce-x ms-2"
+                        className="group-hover/link:animate-bounce-x ms-2"
                         size={10}
                       />
                     </a>
@@ -50,11 +50,16 @@ const Prosjekter: React.FC = () => {
             </div>
           </SlideBox>
           <SlideBox delay={200}>
-            <h1 className="text-4xl font-bold">Prosjekter</h1>
-            <p>
-              Dette er prosjektsiden. Her kan du vise frem prosjekter du har
-              jobbet med.
-            </p>
+            <div className="h-full w-full p-6">
+              <img
+                src="src/assets/images/oslomet-logo.png"
+                alt="logo"
+                className="absolute -top-5 w-10 -left-5 drop-shadow-lg rounded-full"
+              />
+              <h2 className="text-4xl font-bold">Software Engineer</h2>
+
+              <p className="text-end opacity-80">Student</p>
+            </div>
           </SlideBox>
           <SlideBox delay={300}>
             <h1 className="text-4xl font-bold">Prosjekter</h1>

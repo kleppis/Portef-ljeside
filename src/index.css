@@ -7,13 +7,13 @@
     @apply text-7xl text-text font-walter-turncoat;
   }
   h2 {
-    @apply text-3xl text-text;
+    @apply text-3xl text-text font-walter-turncoat;
   }
   h3 {
     @apply text-2xl text-text;
   }
   p {
-    @apply text-base text-text;
+    @apply text-base text-text font-walter-turncoat;
   }
   a {
     @apply text-text font-walter-turncoat;
