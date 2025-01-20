@@ -46,7 +46,7 @@ const Prosjekter: React.FC<ProsjekterProps> = ({ onNavigate }) => {
           <SlideBox>
             <div className="w-full h-full rounded-lg p-6 group/box">
               <img
-                src="src/assets/images/S&M3.svg"
+                src="/assets/images/S&M3.svg"
                 alt="logo"
                 className="absolute -top-5 w-10 -left-5 drop-shadow-lg"
               />
@@ -74,7 +74,7 @@ const Prosjekter: React.FC<ProsjekterProps> = ({ onNavigate }) => {
                   </div>
                   <SlideIn delay={200}>
                     <img
-                      src="src/assets/images/S&M3.svg"
+                      src="/assets/images/S&M3.svg"
                       alt="logo"
                       className="w-10 align-baseline drop-shadow-lg"
                     />
@@ -86,7 +86,7 @@ const Prosjekter: React.FC<ProsjekterProps> = ({ onNavigate }) => {
           <SlideBox delay={200}>
             <div className="h-full w-full p-6">
               <img
-                src="src/assets/images/oslomet-logo.png"
+                src="/assets/images/oslomet-logo.png"
                 alt="logo"
                 className="absolute -top-5 w-10 -left-5 drop-shadow-lg rounded-full"
               />
@@ -98,7 +98,7 @@ const Prosjekter: React.FC<ProsjekterProps> = ({ onNavigate }) => {
           <SlideBox delay={300}>
             <div className="p-6">
               <img
-                src="src/assets/logo/hv_grønn.svg"
+                src="/assets/logo/hv_grønn.svg"
                 alt="logo"
                 className="absolute -top-5 w-10 -left-5 drop-shadow-lg  aspect-square"
               />
