@@ -18,6 +18,13 @@ const Prosjekter: React.FC = () => {
           med.
         </p>
       </SlideBox>
+      <SlideBox delay={300}>
+        <h1 className="text-4xl font-bold">Prosjekter</h1>
+        <p>
+          Dette er prosjektsiden. Her kan du vise frem prosjekter du har jobbet
+          med.
+        </p>
+      </SlideBox>
     </div>
   );
 };

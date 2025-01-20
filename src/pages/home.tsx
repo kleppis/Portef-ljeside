@@ -37,7 +37,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       {/* Prosjekter */}
       <a
         onClick={() => handleClick("/prosjekter")}
-        className="relative group text-7xl font-semibold text-gray-800 flex items-center cursor-pointer transition-colors hover:text-button-textHover"
+        className={`relative group text-7xl font-semibold text-gray-800 flex items-center cursor-pointer transition-all duration-500 hover:text-button-textHover ${
+          clicked === "/prosjekter" ? "translate-x-[50vw]" : ""
+        }`}
       >
         Prosjekter
         <FaArrowRight
