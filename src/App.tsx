@@ -39,7 +39,7 @@ const AppRoutes: React.FC = () => {
         path="/prosjekter"
         element={<Prosjekter onNavigate={handleNavigation} />}
       />
-      <Route path="/about" element={<About />} />
+      <Route path="/about" element={<About onNavigate={handleNavigation} />} />
     </Routes>
   );
 };
