@@ -1,19 +1,24 @@
 import React, {
+  createContext,
+  useContext,
   useState,
   useEffect,
-  createContext,
   ReactNode,
-  useContext,
 } from "react";
 
-// Definer typene for konteksten
 interface ThemeContextType {
   theme: "light" | "dark";
   toggleTheme: () => void;
+  isToggled: boolean;
 }
 
-// Opprett konteksten med default verdier
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextType>({
+  theme: "light",
+  toggleTheme: () => {},
+  isToggled: false,
+});
+
+export const useTheme = () => useContext(ThemeContext);
 
 interface ThemeProviderProps {
   children: ReactNode;
@@ -24,13 +29,17 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     (localStorage.getItem("theme") as "light" | "dark") || "light"
   );
 
+  const [isToggled, setIsToggled] = useState(false);
+
   useEffect(() => {
     const root = document.documentElement;
 
     if (theme === "dark") {
       root.classList.add("dark");
+      setIsToggled(true);
     } else {
       root.classList.remove("dark");
+      setIsToggled(false);
     }
 
     localStorage.setItem("theme", theme);
@@ -41,17 +50,8 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, isToggled }}>
       {children}
     </ThemeContext.Provider>
   );
-};
-
-// Custom hook for enklere tilgang til tema
-export const useTheme = (): ThemeContextType => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error("useTheme must be used within a ThemeProvider");
-  }
-  return context;
 };

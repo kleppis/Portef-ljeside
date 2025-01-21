@@ -12,6 +12,7 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   const [clicked, setClicked] = useState<string | null>(null);
   const { toggleTheme } = useTheme();
+  const { isToggled } = useTheme();
 
   const handleClick = (path: string) => {
     if (!clicked) {
@@ -36,6 +37,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               className="text-text text-4xl"
               duration={750}
               onToggle={toggleTheme}
+              toggled={isToggled}
               placeholder={undefined}
               onPointerEnterCapture={undefined}
               onPointerLeaveCapture={undefined}
