@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { SlideBox } from "../components/slideBox";
-import SlideIn from "../components/slideIn";
 import { FaArrowRight } from "react-icons/fa";
+import SlideIn from "../components/slideIn";
+import { SlideBox } from "../components/slideBox";
 
 interface ProsjekterProps {
   onNavigate: (path: string) => void;
@@ -12,6 +12,7 @@ const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
   const [overlayContent, setOverlayContent] = useState<React.ReactNode | null>(
     null
   );
+  const [isOverlayVisible, setOverlayVisible] = useState(false);
 
   const handleClick = (path: string) => {
     if (!clicked) {
@@ -24,10 +25,14 @@ const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
 
   const handleBoxClick = (content: React.ReactNode) => {
     setOverlayContent(content);
+    setOverlayVisible(true);
   };
 
   const handleCloseOverlay = () => {
-    setOverlayContent(null);
+    setOverlayVisible(false);
+    setTimeout(() => {
+      setOverlayContent(null);
+    }, 500); // Matcher `transition-duration` for å fullføre animasjon
   };
 
   return (
@@ -49,12 +54,12 @@ const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
               </a>
             </SlideIn>
           </div>
-          <h1 className="text-center  drop-shadow-lg uppercase ">Om Meg</h1>
+          <h1 className="text-center drop-shadow-lg uppercase">Om Meg</h1>
         </div>
-        <div className=" flex items-center justify-center overflow-hidden space-x-5 py-36">
+        <div className="flex items-center justify-center overflow-hidden space-x-5 py-36">
           <SlideBox direction="left" delay={300}>
             <div
-              className="w-full h-full rounded-lg p-6 group/box"
+              className="w-full h-full rounded-lg p-6 group/box cursor-pointer"
               onClick={() =>
                 handleBoxClick(
                   <div>
@@ -77,23 +82,42 @@ const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
             </div>
           </SlideBox>
           <SlideBox delay={200} direction="left">
-            <div className="h-full w-full p-6 group/box">
+            <div
+              className="h-full w-full p-6 group/box cursor-pointer"
+              onClick={() =>
+                handleBoxClick(
+                  <div>
+                    <h2 className="text-4xl font-bold">Erfaring</h2>
+                    <p>Detaljert informasjon om erfaring.</p>
+                  </div>
+                )
+              }
+            >
               <div className="w-10 flex h-10 justify-center align-center text-text bg-gray-300 font-walter-turncoat rounded-full absolute -top-5 -left-5 drop-shadow-lg group-hover/box:bg-secondary transition-all duration-500">
                 <p className="my-auto font-extrabold">CV</p>
               </div>
               <h2 className="text-4xl font-bold">Erfaring</h2>
-
               <p className="text-end opacity-80">Student</p>
             </div>
           </SlideBox>
           <SlideBox direction="left">
-            <div className="w-full h-full p-6 group/box">
+            <div
+              className="w-full h-full p-6 group/box cursor-pointer"
+              onClick={() =>
+                handleBoxClick(
+                  <div>
+                    <h2 className="text-4xl font-bold">Kleppan IT</h2>
+                    <p>Detaljert informasjon om Kleppan IT.</p>
+                  </div>
+                )
+              }
+            >
               <img
                 src="/assets/logo/hv_grønn.svg"
                 alt="logo"
-                className="absolute -top-5 w-10 -left-5 drop-shadow-lg  aspect-square grayscale group-hover/box:grayscale-0 transition-all duration-500"
+                className="absolute -top-5 w-10 -left-5 drop-shadow-lg aspect-square grayscale group-hover/box:grayscale-0 transition-all duration-500"
               />
-              <h2 className="text-4xl font-bold">Kleppan IT</h2>
+              <h2 className="text-4xl font-bold">Hobby</h2>
               <SlideIn delay={10}>
                 <a
                   href="https://www.kleppanit.no/"
@@ -111,11 +135,15 @@ const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
         </div>
         {overlayContent && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-500"
+            className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-500 ${
+              isOverlayVisible ? "opacity-100" : "opacity-0"
+            }`}
             onClick={handleCloseOverlay}
           >
             <div
-              className="bg-white p-8 rounded-lg shadow-lg relative"
+              className={`bg-white p-8 rounded-lg shadow-lg relative transform transition-transform duration-500 ${
+                isOverlayVisible ? "scale-100" : "scale-95"
+              }`}
               onClick={(e) => e.stopPropagation()}
             >
               <button
