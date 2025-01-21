@@ -10,4 +10,5 @@ export const lightTheme = {
     textHover: colors.stone[400],
   },
   link: colors.blue[500],
+  linkHover: colors.blue[300],
 };

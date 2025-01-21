@@ -26,7 +26,7 @@ const Prosjekter: React.FC<ProsjekterProps> = ({ onNavigate }) => {
             <SlideIn>
               <a
                 onClick={() => handleClick("/")}
-                className={`text-3xl hover:opacity-80 transition-all cursor-pointer ${
+                className={`group relative text-3xl hover:text-button-textHover transition-all cursor-pointer  ${
                   clicked === "/" ? "-translate-x-[50vw]" : ""
                 }`}
               >
@@ -48,7 +48,7 @@ const Prosjekter: React.FC<ProsjekterProps> = ({ onNavigate }) => {
               <img
                 src="/assets/images/S&M3.svg"
                 alt="logo"
-                className="absolute -top-5 w-10 -left-5 drop-shadow-lg"
+                className="absolute -top-5 w-10 -left-5 drop-shadow-lg grayscale group-hover/box:grayscale-0 transition-all duration-500"
               />
               <div className="flex flex-col h-full justify-between">
                 <div>
@@ -84,11 +84,11 @@ const Prosjekter: React.FC<ProsjekterProps> = ({ onNavigate }) => {
             </div>
           </SlideBox>
           <SlideBox delay={200}>
-            <div className="h-full w-full p-6">
+            <div className="h-full w-full p-6 group/box">
               <img
                 src="/assets/images/oslomet-logo.png"
                 alt="logo"
-                className="absolute -top-5 w-10 -left-5 drop-shadow-lg rounded-full"
+                className="absolute -top-5 w-10 -left-5 drop-shadow-lg rounded-full grayscale group-hover/box:grayscale-0 transition-all duration-500"
               />
               <h2 className="text-4xl font-bold">Software Engineer</h2>
 
@@ -96,11 +96,11 @@ const Prosjekter: React.FC<ProsjekterProps> = ({ onNavigate }) => {
             </div>
           </SlideBox>
           <SlideBox delay={300}>
-            <div className="p-6">
+            <div className="w-full h-full p-6 group/box">
               <img
                 src="/assets/logo/hv_grønn.svg"
                 alt="logo"
-                className="absolute -top-5 w-10 -left-5 drop-shadow-lg  aspect-square"
+                className="absolute -top-5 w-10 -left-5 drop-shadow-lg  aspect-square grayscale group-hover/box:grayscale-0 transition-all duration-500"
               />
               <h2 className="text-4xl font-bold">Kleppan IT</h2>
               <SlideIn delay={10}>
