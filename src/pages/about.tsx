@@ -1,7 +1,7 @@
 import React from "react";
 import { useTheme } from "../lib/theme/themeProvider";
 
-const Contact: React.FC = () => {
+const About: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -20,4 +20,4 @@ const Contact: React.FC = () => {
   );
 };
 
-export default Contact;
+export default About;
