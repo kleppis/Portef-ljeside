@@ -44,6 +44,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             />
           </div>
           <h2 className="text-center my-20">Siden er enda under utvikling</h2>
+          <p className="text-center">
+            Siden er heller ikke optimalisert for mobil
+          </p>
           <div className="flex items-center justify-center py-24 space-x-10 overflow-hidden">
             {/* Om oss */}
             <SlideIn>
