@@ -26,7 +26,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   return (
     <>
       <div className="bg-background min-h-screen ">
-        <div className="max-w-9xl mx-auto px-28 pt-10 pb-5">
+        <div className="max-w-screen-2xl mx-auto px-28 pt-10 pb-5">
           <div className="flex justify-between">
             <img
               src="/assets/logo/long_hvit.svg"
