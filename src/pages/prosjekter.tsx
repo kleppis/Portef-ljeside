@@ -22,20 +22,17 @@ const Prosjekter: React.FC<ProsjekterProps> = ({ onNavigate }) => {
     <>
       <div className="bg-background min-h-screen">
         <div className="flex py-16 justify-center w-full items-center">
-          <div className="absolute left-10 top-20">
+          <div
+            className={`absolute left-10 top-20 transition-transform duration-500 ${
+              clicked === "/" ? "-translate-x-[50vw]" : ""
+            }`}
+          >
             <SlideIn>
               <a
                 onClick={() => handleClick("/")}
-                className={`group relative text-3xl hover:text-button-textHover transition-all cursor-pointer  ${
-                  clicked === "/" ? "-translate-x-[50vw]" : ""
-                }`}
+                className="text-3xl hover:text-button-textHover cursor-pointer"
               >
-                <FaArrowLeft
-                  size={20}
-                  className={`inline-block ml-2 transition-transform duration-500 ${
-                    clicked === "/" ? "-translate-x-[50vw]" : ""
-                  }`}
-                />
+                <FaArrowLeft size={20} className="inline-block ml-2" />
                 Tilbake
               </a>
             </SlideIn>

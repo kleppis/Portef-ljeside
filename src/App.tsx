@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { ThemeProvider } from "./lib/theme/themeProvider";
 import Prosjekter from "./pages/prosjekter";
-import Contact from "./pages/contact";
+import About from "./pages/about";
 import Home from "./pages/home";
 
 const App: React.FC = () => {
@@ -39,7 +39,7 @@ const AppRoutes: React.FC = () => {
         path="/prosjekter"
         element={<Prosjekter onNavigate={handleNavigation} />}
       />
-      <Route path="/contact" element={<Contact />} />
+      <Route path="/about" element={<About onNavigate={handleNavigation} />} />
     </Routes>
   );
 };
