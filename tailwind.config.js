@@ -20,17 +20,15 @@ export default {
           "0%, 100%": { transform: "translateX(0)" },
           "50%": { transform: "translateX(-10px)" },
         },
+        "open-box": {
+          "0%": { maxWidth: "0" },
+          "100%": { maxWidth: "100%" },
+        },
       },
       animation: {
         "bounce-x": "bounce-x 1s infinite",
         "bounce-x-left": "bounce-x-left 1s infinite",
-      },
-      colors: {
-        // Eksempler på custom farger
-        primary: "#1d4ed8", // Blå for lys modus
-        secondary: "#64748b", // Grå for lys modus
-        "dark-primary": "#2563eb", // Blå for mørk modus
-        "dark-secondary": "#94a3b8", // Grå for mørk modus
+        "open-box": "open-box 2s ease-in-out forwards",
       },
       spacing: {
         128: "32rem", // Eksempel på ny spacing
