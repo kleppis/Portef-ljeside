@@ -43,16 +43,17 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               onPointerLeaveCapture={undefined}
             />
           </div>
-          <h2 className="text-center my-20">Siden er enda under utvikling</h2>
-          <p className="text-center">
-            Siden er heller ikke optimalisert for mobil
-          </p>
+          <div className="w-fit mx-auto my-20">
+            <p className="text-xl opacity-80">Jeg er</p>
+            <h1 className=" display">Jørgen Kleppan</h1>
+            <p className="text-center">Siden er ikke optimalisert for mobil</p>
+          </div>
           <div className="flex items-center justify-center py-24 space-x-10 overflow-hidden">
             {/* Om oss */}
             <SlideIn>
               <a
                 onClick={() => handleClick("/about")}
-                className={`relative group text-7xl font-semibold text-text flex items-center cursor-pointer transition-all duration-500 hover:text-button-textHover ${
+                className={`relative group text-5xl font-semibold text-text flex items-center cursor-pointer transition-all duration-500 hover:text-secondary ${
                   clicked === "/about" ? "-translate-x-[50vw]" : ""
                 }`}
               >
@@ -69,7 +70,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <SlideIn>
               <a
                 onClick={() => handleClick("/prosjekter")}
-                className={`relative group text-7xl font-semibold text-text flex items-center cursor-pointer transition-all duration-500 hover:text-button-textHover ${
+                className={`relative group text-5xl font-semibold text-text flex items-center cursor-pointer transition-all duration-500 hover:text-secondary ${
                   clicked === "/prosjekter" ? "translate-x-[50vw]" : ""
                 }`}
               >
