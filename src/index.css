@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer utilities {
+  .display {
+    @apply text-8xl text-text font-walter-turncoat;
+  }
   h1 {
     @apply text-7xl text-text font-walter-turncoat;
   }
@@ -16,6 +19,6 @@
     @apply text-base text-text font-walter-turncoat;
   }
   a {
-    @apply text-link font-walter-turncoat hover:text-linkHover;
+    @apply text-secondary font-walter-turncoat hover:text-linkHover;
   }
 }
