@@ -27,12 +27,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     <>
       <div className="bg-background min-h-screen ">
         <div className="max-w-screen-2xl mx-auto px-28 pt-10 pb-5">
-          <div className="flex justify-between">
-            <img
-              src="/assets/logo/long_hvit.svg"
-              alt="logo"
-              className="w-44  grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer"
-            />
+          <div className="">
             <Lightbulb
               className="text-text text-4xl"
               duration={750}
@@ -44,10 +39,23 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             />
           </div>
           <div className="w-fit mx-auto my-20">
-            <p className="text-xl opacity-80">Jeg er</p>
-            <h1 className=" display">Jørgen Kleppan</h1>
-            <p className="text-center">Siden er ikke optimalisert for mobil</p>
+            <p className="text-xl opacity-80 transition-all duration-500">
+              Jeg er
+            </p>
+            <h1 className=" display transition-all duration-500">
+              Jørgen Kleppan
+            </h1>
+            <p className="text-center transition-all duration-500">
+              Siden er ikke optimalisert for mobil
+            </p>
           </div>
+          <a href="https://www.kleppanit.no/">
+            <img
+              src="/assets/logo/long_hvit.svg"
+              alt="logo"
+              className="w-44 mx-auto  grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer"
+            />
+          </a>
           <div className="flex items-center justify-center py-24 space-x-10 overflow-hidden">
             {/* Om oss */}
             <SlideIn>
