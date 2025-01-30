@@ -24,11 +24,17 @@ export default {
           "0%": { maxWidth: "0" },
           "100%": { maxWidth: "100%" },
         },
+        ring: {
+          "0%": { transform: "rotate(0deg)" },
+          "50%": { transform: "rotate(-40deg)" },
+          "100%": { transform: "rotate(0deg)" },
+        },
       },
       animation: {
         "bounce-x": "bounce-x 1s infinite",
         "bounce-x-left": "bounce-x-left 1s infinite",
         "open-box": "open-box 2s ease-in-out forwards",
+        ring: "ring .5s infinite",
       },
       spacing: {
         128: "32rem", // Eksempel på ny spacing
