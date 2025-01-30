@@ -47,7 +47,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     return text.split("").map((char, index) => (
       <span
         key={index}
-        className="inline-block transition-transform duration-200 ease-in-out hover:-translate-y-6 cursor-default pb-10 hoverable-char"
+        className="inline-block transition-all duration-200 ease-in-out hover:-translate-y-6 cursor-default pb-10 hoverable-char"
         onMouseEnter={() => handleMouseEnter(index)}
         onMouseLeave={() => handleMouseLeave(index)}
       >
