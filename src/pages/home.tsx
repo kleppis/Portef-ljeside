@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import SlideIn from "../components/slideIn";
 import "@theme-toggles/react/css/Lightbulb.css";
@@ -13,6 +13,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   const [clicked, setClicked] = useState<string | null>(null);
   const { toggleTheme } = useTheme();
   const { isToggled } = useTheme();
+  const textRef = useRef<HTMLDivElement>(null);
 
   const handleClick = (path: string) => {
     if (!clicked) {
@@ -23,33 +24,44 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     }
   };
 
-  const handleMouseEnter = (index: number) => {
+  const handleMouseMove = (event: MouseEvent) => {
     const spans = document.querySelectorAll(".hoverable-char");
-    if (spans[index - 1]) {
-      spans[index - 1].classList.add("-translate-y-3");
-    }
-    if (spans[index + 1]) {
-      spans[index + 1].classList.add("-translate-y-3");
-    }
+    const textRect = textRef.current?.getBoundingClientRect();
+    if (!textRect) return;
+
+    const mouseX = event.clientX;
+    spans.forEach((span) => {
+      const spanRect = (span as HTMLElement).getBoundingClientRect();
+      const spanCenterX = spanRect.left + spanRect.width / 2;
+      const distance = Math.abs(mouseX - spanCenterX);
+      const maxDistance = textRect.width / 5;
+      const lift = Math.max(0, 1 - distance / maxDistance) * 50; // Juster 6 for maksimal løft
+      (span as HTMLElement).style.transform = `translateY(-${lift}px)`;
+    });
   };
 
-  const handleMouseLeave = (index: number) => {
-    const spans = document.querySelectorAll(".hoverable-char");
-    if (spans[index - 1]) {
-      spans[index - 1].classList.remove("-translate-y-3");
-    }
-    if (spans[index + 1]) {
-      spans[index + 1].classList.remove("-translate-y-3");
-    }
-  };
+  useEffect(() => {
+    const handleMouseLeave = () => {
+      const spans = document.querySelectorAll(".hoverable-char");
+      spans.forEach((span) => {
+        (span as HTMLElement).style.transform = "translateY(0)";
+      });
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
 
   const renderHoverableText = (text: string) => {
     return text.split("").map((char, index) => (
       <span
         key={index}
-        className="inline-block transition-all duration-200 ease-in-out hover:-translate-y-6 cursor-default pb-10 hoverable-char"
-        onMouseEnter={() => handleMouseEnter(index)}
-        onMouseLeave={() => handleMouseLeave(index)}
+        className="inline-block ease-in-out cursor-default pb-10 hoverable-char"
       >
         {char === " " ? "\u00A0" : char}
       </span>
@@ -75,7 +87,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <p className="text-xl opacity-80 transition-all duration-500">
               Jeg er
             </p>
-            <h1 className=" display transition-all duration-200 uppercase">
+            <h1 className=" display uppercase" ref={textRef}>
               {renderHoverableText("Jørgen Kleppan")}
             </h1>
             <p className="text-center transition-all duration-500">
