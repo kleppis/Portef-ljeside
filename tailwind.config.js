@@ -39,6 +39,7 @@ export default {
       },
       fontFamily: {
         "walter-turncoat": ['"Walter Turncoat"', "serif"],
+        "libre-bodoni": ['"Libre Bodoni"', "serif"],
       },
     },
   },

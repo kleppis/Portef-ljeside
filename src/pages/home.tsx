@@ -23,6 +23,39 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     }
   };
 
+  const handleMouseEnter = (index: number) => {
+    const spans = document.querySelectorAll(".hoverable-char");
+    if (spans[index - 1]) {
+      spans[index - 1].classList.add("-translate-y-3");
+    }
+    if (spans[index + 1]) {
+      spans[index + 1].classList.add("-translate-y-3");
+    }
+  };
+
+  const handleMouseLeave = (index: number) => {
+    const spans = document.querySelectorAll(".hoverable-char");
+    if (spans[index - 1]) {
+      spans[index - 1].classList.remove("-translate-y-3");
+    }
+    if (spans[index + 1]) {
+      spans[index + 1].classList.remove("-translate-y-3");
+    }
+  };
+
+  const renderHoverableText = (text: string) => {
+    return text.split("").map((char, index) => (
+      <span
+        key={index}
+        className="inline-block transition-transform duration-200 ease-in-out hover:-translate-y-6 cursor-default pb-10 hoverable-char"
+        onMouseEnter={() => handleMouseEnter(index)}
+        onMouseLeave={() => handleMouseLeave(index)}
+      >
+        {char === " " ? "\u00A0" : char}
+      </span>
+    ));
+  };
+
   return (
     <>
       <div className="bg-background min-h-screen ">
@@ -42,8 +75,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <p className="text-xl opacity-80 transition-all duration-500">
               Jeg er
             </p>
-            <h1 className=" display transition-all duration-500">
-              Jørgen Kleppan
+            <h1 className=" display transition-all duration-200 uppercase">
+              {renderHoverableText("Jørgen Kleppan")}
             </h1>
             <p className="text-center transition-all duration-500">
               Siden er ikke optimalisert for mobil
