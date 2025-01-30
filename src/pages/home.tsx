@@ -30,6 +30,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   };
 
   const handleMouseMove = (event: MouseEvent) => {
+    if (window.innerWidth < 768) return;
+
     const spans = document.querySelectorAll(".hoverable-char");
     const textRect = textRef.current?.getBoundingClientRect();
     if (!textRect) return;
@@ -76,7 +78,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   return (
     <>
       <div className="bg-background  min-h-screen">
-        <div className="max-w-screen-2xl mx-auto px-28 pt-10 pb-5">
+        <div className="max-w-screen-2xl mx-auto px-4 md:px-28 pt-10 pb-5">
           <div className="">
             <div className="">
               <Lightbulb
@@ -94,7 +96,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 Jeg er
               </p>
               <h1
-                className=" display uppercase transition-colors duration-500"
+                className=" display uppercase transition-colors duration-500 text-nowrap"
                 ref={textRef}
               >
                 {renderHoverableText("Jørgen Kleppan")}
@@ -115,7 +117,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               <SlideIn>
                 <a
                   onClick={() => handleClick("/about")}
-                  className={`relative group text-5xl font-semibold text-text flex items-center cursor-pointer transition-all duration-500 hover:text-secondary ${
+                  className={`relative group  text-2xl sm:text-4xl md:text-5xl font-semibold text-text flex items-center cursor-pointer transition-all duration-500 hover:text-secondary ${
                     clicked === "/about" ? "-translate-x-[50vw]" : ""
                   }`}
                 >
@@ -132,7 +134,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               <SlideIn>
                 <a
                   onClick={() => handleClick("/prosjekter")}
-                  className={`relative group text-5xl font-semibold text-text flex items-center cursor-pointer transition-all duration-500 hover:text-secondary ${
+                  className={`relative group text-2xl sm:text-4xl md:text-5xl font-semibold text-text flex items-center cursor-pointer transition-all duration-500 hover:text-secondary ${
                     clicked === "/prosjekter" ? "translate-x-[50vw]" : ""
                   }`}
                 >
