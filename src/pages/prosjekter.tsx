@@ -39,7 +39,7 @@ const Prosjekter: React.FC<ProsjekterProps> = ({ onNavigate }) => {
           </div>
           <h1 className="text-center  drop-shadow-lg uppercase ">Prosjekter</h1>
         </div>
-        <div className=" flex items-center justify-center overflow-hidden space-x-5 py-36">
+        <div className=" flex flex-col md:flex-row items-center justify-center overflow-hidden md:space-x-5 py-10 md:px-10 md:py-36 space-y-7 md:space-y-0">
           <SlideBox>
             <div className="w-full h-full rounded-lg p-6 group/box">
               <img
