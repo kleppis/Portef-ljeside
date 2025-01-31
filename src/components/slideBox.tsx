@@ -26,7 +26,7 @@ export const SlideBox: React.FC<SlideBoxProps> = ({
     direction === "left" ? "-translate-x-[90vw]" : "translate-x-[90vw]";
   return (
     <div
-      className={`w-96 h-96 border-divider border-[1px] rounded-lg shadow-lg transition-all duration-700 hover:shadow-2xl hover:shadow-black hover:bg-white ${
+      className={`w-80 md:w-96 h-96 border-divider border-[1px] rounded-lg shadow-lg transition-all duration-700 hover:shadow-2xl hover:shadow-black hover:bg-white ${
         isVisible ? "translate-x-0 opacity-100" : `${translateClass} opacity-0`
       }`}
     >

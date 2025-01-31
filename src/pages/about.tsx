@@ -57,10 +57,10 @@ const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
           </div>
           <h1 className="text-center drop-shadow-lg uppercase">Om Meg</h1>
         </div>
-        <div className="flex items-center justify-center overflow-hidden space-x-5 py-36">
+        <div className="flex flex-col md:flex-row items-center justify-center overflow-hidden md:space-x-5 py-10 md:px-10 md:py-36 space-y-7 md:space-y-0">
           <SlideBox direction="left" delay={300}>
             <div
-              className="w-full h-full rounded-lg p-6 group/box cursor-pointer"
+              className="h-full w-full rounded-lg p-6 group/box cursor-pointer"
               onClick={() =>
                 handleBoxClick(
                   <div className="flex h-[40rem]">
