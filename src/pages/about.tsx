@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import SlideIn from "../components/slideIn";
 import { SlideBox } from "../components/slideBox";
@@ -35,6 +35,14 @@ const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
       setOverlayContent(null);
     }, 500); // Matcher `transition-duration` for å fullføre animasjon
   };
+
+  useEffect(() => {
+    if (isOverlayVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOverlayVisible]);
 
   return (
     <>
