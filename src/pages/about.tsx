@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import SlideIn from "../components/slideIn";
 import { SlideBox } from "../components/slideBox";
@@ -36,19 +36,27 @@ const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
     }, 500); // Matcher `transition-duration` for å fullføre animasjon
   };
 
+  useEffect(() => {
+    if (isOverlayVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOverlayVisible]);
+
   return (
     <>
       <div className="bg-background min-h-screen overflow-hidden relative">
         <div className="flex py-16 justify-center items-center max-w-screen-2xl mx-auto overflow-hidden">
           <div
-            className={`absolute right-10 top-20 transition-transform duration-500 ${
+            className={`absolute right-2 md:right-10 top-5 md:top-20 transition-transform duration-500 ${
               clicked === "/" ? "translate-x-[50vw]" : ""
             }`}
           >
             <SlideIn>
               <a
                 onClick={() => handleClick("/")}
-                className="text-3xl hover:text-button-textHover cursor-pointer"
+                className="text-xl md:text-3xl hover:text-button-textHover cursor-pointer"
               >
                 Tilbake
                 <FaArrowRight size={20} className="inline-block ml-2" />
@@ -57,20 +65,20 @@ const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
           </div>
           <h1 className="text-center drop-shadow-lg uppercase">Om Meg</h1>
         </div>
-        <div className="flex items-center justify-center overflow-hidden space-x-5 py-36">
+        <div className="flex flex-col md:flex-row items-center justify-center overflow-hidden md:space-x-5 py-10 md:px-10 md:py-36 space-y-7 md:space-y-0">
           <SlideBox direction="left" delay={300}>
             <div
-              className="w-full h-full rounded-lg p-6 group/box cursor-pointer"
+              className="h-full w-full rounded-lg p-6 group/box cursor-pointer"
               onClick={() =>
                 handleBoxClick(
-                  <div className="flex h-[40rem]">
+                  <div className="flex flex-col md:flex-row h-[40rem]">
                     <img
                       src="/assets/images/sykkelMeg.jpeg"
                       alt="bike-picture"
-                      className=" h-full object-cover w-96"
+                      className=" h-full object-cover w-96 hidden md:block"
                     />
-                    <div className="h-full w-4 bg-primary"></div>
-                    <div className="flex flex-col mx-5 pt-10 w-96">
+                    <div className="h-full w-4 bg-primary hidden md:block"></div>
+                    <div className="flex flex-col mx-5 pt-10 md:w-96">
                       <h2 className="text-4xl font-bold">Jørgen Kleppan</h2>
                       <p className="opacity-50">Student</p>
                       <p className="mt-5">
@@ -128,17 +136,17 @@ const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
           </SlideBox>
           <SlideBox delay={200} direction="left">
             <div
-              className="h-full w-full p-6 group/box cursor-pointer"
+              className="h-full w-full p-6 group/box cursor-pointer overflow-hidden"
               onClick={() =>
                 handleBoxClick(
-                  <div className="flex h-[40rem] ">
+                  <div className="flex flex-col md:flex-row h-[40rem] ">
                     <img
                       src="/assets/images/sykkelMeg.jpeg"
                       alt="bike-picture"
-                      className=" h-full object-cover w-96"
+                      className=" h-full object-cover w-96 hidden md:block"
                     />
-                    <div className="h-full w-4 bg-primary"></div>
-                    <div className="flex flex-col mx-5 pt-10 w-96 overflow-scroll scrollbar-hide">
+                    <div className="h-full w-4 bg-primary hidden md:block"></div>
+                    <div className="flex flex-col mx-5 pt-10 md:w-96 overflow-scroll scrollbar-hide">
                       <h2 className="text-4xl font-bold">Erfaring</h2>
                       <p className="opacity-50 pb-5">CV</p>
                       <CvLine
@@ -206,13 +214,13 @@ const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
               className="w-full h-full p-6 group/box cursor-pointer"
               onClick={() =>
                 handleBoxClick(
-                  <div className="flex h-[40rem] ">
-                    <div className="w-96 bg-primary py-10 px-5">
+                  <div className="flex flex-col md:flex-row h-[40rem] ">
+                    <div className="md:w-96 bg-primary py-10 px-5">
                       <h2 className=" text-background">Strava stats</h2>
                       <p className="text-background">Kommer snart</p>
                     </div>
-                    <div className="h-full w-4 bg-primary"></div>
-                    <div className="flex flex-col mx-5 pt-10 w-96 overflow-scroll scrollbar-hide">
+                    <div className="h-full w-4 bg-primary hidden md:block"></div>
+                    <div className="flex flex-col mx-5 pt-10 md:w-96 overflow-scroll scrollbar-hide">
                       <h2 className="text-4xl font-bold">Hobbyer</h2>
                       <p className="opacity-50 pb-5">Aktiv & Lærevillig</p>
                       <CvLine

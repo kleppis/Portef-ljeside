@@ -3,11 +3,14 @@
 @tailwind utilities;
 
 @layer utilities {
+  .display {
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-text font-libre-bodoni;
+  }
   h1 {
-    @apply text-7xl text-text font-walter-turncoat;
+    @apply text-5xl md:text-7xl text-text font-libre-bodoni;
   }
   h2 {
-    @apply text-3xl text-text;
+    @apply text-3xl text-text font-libre-bodoni;
   }
   h3 {
     @apply text-2xl text-text font-walter-turncoat;
@@ -16,6 +19,6 @@
     @apply text-base text-text font-walter-turncoat;
   }
   a {
-    @apply text-link font-walter-turncoat hover:text-linkHover;
+    @apply text-secondary font-walter-turncoat hover:text-linkHover;
   }
 }
