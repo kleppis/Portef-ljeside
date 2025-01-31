@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { SlideBox } from "../components/slideBox";
 import SlideIn from "../components/slideIn";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { HiOutlineWrench } from "react-icons/hi2";
 
 interface ProsjekterProps {
   onNavigate: (path: string) => void;

@@ -78,7 +78,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   return (
     <>
       <div className="bg-background  min-h-screen">
-        <div className="max-w-screen-2xl mx-auto px-4 md:px-28 pt-10 pb-5">
+        <div className="max-w-screen-2xl mx-auto px-4 md:px-28 pt-10 pb-5 overflow-hidden">
           <div className="">
             <div className="">
               <Lightbulb
@@ -101,9 +101,38 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               >
                 {renderHoverableText("Jørgen Kleppan")}
               </h1>
-              <p className="text-center transition-all duration-500">
-                Siden er ikke optimalisert for mobil
-              </p>
+              <div className="flex mx-auto justify-center space-x-3 md:space-x-10  whitespace-nowrap py-5">
+                <img
+                  src="/vite.svg"
+                  alt=""
+                  className="w-7 md:w-10 inline-block"
+                />
+                <img
+                  src="/assets/logo/react-2.svg"
+                  alt=""
+                  className="w-7 md:w-10 inline-block"
+                />
+                <img
+                  src="/assets/logo/java-svgrepo-com.svg"
+                  alt=""
+                  className="w-7 md:w-10 inline-block"
+                />
+                <img
+                  src="/assets/logo/icons8-sql-64.png"
+                  alt=""
+                  className="w-7 md:w-10 inline-block"
+                />
+                <img
+                  src="/assets/logo/icons8-javascript.svg"
+                  alt=""
+                  className="w-7 md:w-10 inline-block"
+                />
+                <img
+                  src="/assets/logo/icons8-html.svg"
+                  alt=""
+                  className="w-7 md:w-10 inline-block"
+                />
+              </div>
             </div>
             <a href="https://www.kleppanit.no/">
               <img

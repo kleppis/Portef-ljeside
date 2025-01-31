@@ -29,12 +29,17 @@ export default {
           "50%": { transform: "rotate(-40deg)" },
           "100%": { transform: "rotate(0deg)" },
         },
+        scrollLoop: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-120%)" },
+        },
       },
       animation: {
         "bounce-x": "bounce-x 1s infinite",
         "bounce-x-left": "bounce-x-left 1s infinite",
         "open-box": "open-box 2s ease-in-out forwards",
         ring: "ring .5s infinite",
+        scrollLoop: "scrollLoop 5s linear infinite",
       },
       spacing: {
         128: "32rem", // Eksempel på ny spacing
