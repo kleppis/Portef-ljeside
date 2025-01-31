@@ -9,24 +9,24 @@ import SlideIn from "../components/slideIn";
 import "@theme-toggles/react/css/Lightbulb.css";
 import { Lightbulb } from "@theme-toggles/react";
 import { useTheme } from "../lib/theme/themeProvider";
+import { useNavigate } from "react-router-dom";
 
-interface HomeProps {
-  onNavigate: (path: string) => void;
-}
-
-const Home: React.FC<HomeProps> = ({ onNavigate }) => {
+const Home: React.FC = () => {
   const [clicked, setClicked] = useState<string | null>(null);
   const { toggleTheme } = useTheme();
   const { isToggled } = useTheme();
   const textRef = useRef<HTMLDivElement>(null);
 
-  const handleClick = (path: string) => {
-    if (!clicked) {
-      setClicked(path);
-      setTimeout(() => {
-        onNavigate(path);
-      }, 100); // Gir nok tid til at animasjonen fullføres
-    }
+  const navigate = useNavigate();
+  const [, setIsAnimating] = useState(false);
+
+  const handleNavigation = (path: string) => {
+    setIsAnimating(true);
+    setClicked(path);
+    setTimeout(() => {
+      navigate(path);
+      setIsAnimating(false);
+    }, 300); // Juster forsinkelsen etter animasjonens lengde
   };
 
   const handleMouseMove = (event: MouseEvent) => {
@@ -145,7 +145,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               {/* Om oss */}
               <SlideIn>
                 <a
-                  onClick={() => handleClick("/about")}
+                  onClick={() => handleNavigation("/about")}
                   className={`relative group  text-2xl sm:text-4xl md:text-5xl font-semibold text-text flex items-center cursor-pointer transition-all duration-500 hover:text-secondary ${
                     clicked === "/about" ? "-translate-x-[50vw]" : ""
                   }`}
@@ -162,7 +162,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               {/* Prosjekter */}
               <SlideIn>
                 <a
-                  onClick={() => handleClick("/prosjekter")}
+                  onClick={() => handleNavigation("/prosjekter")}
                   className={`relative group text-2xl sm:text-4xl md:text-5xl font-semibold text-text flex items-center cursor-pointer transition-all duration-500 hover:text-secondary ${
                     clicked === "/prosjekter" ? "translate-x-[50vw]" : ""
                   }`}

@@ -2,22 +2,23 @@ import React, { useState } from "react";
 import { SlideBox } from "../components/slideBox";
 import SlideIn from "../components/slideIn";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
-interface ProsjekterProps {
-  onNavigate: (path: string) => void;
-}
-
-const Prosjekter: React.FC<ProsjekterProps> = ({ onNavigate }) => {
+const Prosjekter: React.FC = () => {
   const [clicked, setClicked] = useState<string | null>(null);
 
-  const handleClick = (path: string) => {
-    if (!clicked) {
-      setClicked(path);
-      setTimeout(() => {
-        onNavigate(path);
-      }, 100); // Gir nok tid til at animasjonen fullføres
-    }
+  const navigate = useNavigate();
+  const [, setIsAnimating] = useState(false);
+
+  const handleNavigation = (path: string) => {
+    setIsAnimating(true);
+    setClicked(path);
+    setTimeout(() => {
+      navigate(path);
+      setIsAnimating(false);
+    }, 300); // Juster forsinkelsen etter animasjonens lengde
   };
+
   return (
     <>
       <div className="bg-background min-h-screen">
@@ -29,7 +30,7 @@ const Prosjekter: React.FC<ProsjekterProps> = ({ onNavigate }) => {
           >
             <SlideIn>
               <a
-                onClick={() => handleClick("/")}
+                onClick={() => handleNavigation("/")}
                 className="text-xl md:text-3xl hover:text-button-textHover cursor-pointer"
               >
                 <FaArrowLeft size={20} className="inline-block ml-2" />

@@ -3,25 +3,25 @@ import { FaArrowRight } from "react-icons/fa";
 import SlideIn from "../components/slideIn";
 import { SlideBox } from "../components/slideBox";
 import { CvLine, CvLineShort } from "../components/cvLine";
+import { useNavigate } from "react-router-dom";
 
-interface ProsjekterProps {
-  onNavigate: (path: string) => void;
-}
-
-const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
+const About: React.FC = () => {
   const [clicked, setClicked] = useState<string | null>(null);
   const [overlayContent, setOverlayContent] = useState<React.ReactNode | null>(
     null
   );
   const [isOverlayVisible, setOverlayVisible] = useState(false);
 
-  const handleClick = (path: string) => {
-    if (!clicked) {
-      setClicked(path);
-      setTimeout(() => {
-        onNavigate(path);
-      }, 100); // Gir nok tid til at animasjonen fullføres
-    }
+  const navigate = useNavigate();
+  const [, setIsAnimating] = useState(false);
+
+  const handleNavigation = (path: string) => {
+    setIsAnimating(true);
+    setClicked(path);
+    setTimeout(() => {
+      navigate(path);
+      setIsAnimating(false);
+    }, 300); // Juster forsinkelsen etter animasjonens lengde
   };
 
   const handleBoxClick = (content: React.ReactNode) => {
@@ -55,7 +55,7 @@ const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
           >
             <SlideIn>
               <a
-                onClick={() => handleClick("/")}
+                onClick={() => handleNavigation("/")}
                 className="text-xl md:text-3xl hover:text-button-textHover cursor-pointer"
               >
                 Tilbake
