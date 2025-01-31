@@ -63,14 +63,14 @@ const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
               className="h-full w-full rounded-lg p-6 group/box cursor-pointer"
               onClick={() =>
                 handleBoxClick(
-                  <div className="flex h-[40rem]">
+                  <div className="flex flex-col md:flex-row h-[40rem]">
                     <img
                       src="/assets/images/sykkelMeg.jpeg"
                       alt="bike-picture"
-                      className=" h-full object-cover w-96"
+                      className=" h-full object-cover w-96 hidden md:block"
                     />
-                    <div className="h-full w-4 bg-primary"></div>
-                    <div className="flex flex-col mx-5 pt-10 w-96">
+                    <div className="h-full w-4 bg-primary hidden md:block"></div>
+                    <div className="flex flex-col mx-5 pt-10 md:w-96">
                       <h2 className="text-4xl font-bold">Jørgen Kleppan</h2>
                       <p className="opacity-50">Student</p>
                       <p className="mt-5">
