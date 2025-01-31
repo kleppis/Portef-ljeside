@@ -7,7 +7,7 @@
     @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-text font-libre-bodoni;
   }
   h1 {
-    @apply text-7xl text-text font-walter-turncoat;
+    @apply text-5xl md:text-7xl text-text font-walter-turncoat;
   }
   h2 {
     @apply text-3xl text-text font-libre-bodoni;

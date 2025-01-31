@@ -23,14 +23,14 @@ const Prosjekter: React.FC<ProsjekterProps> = ({ onNavigate }) => {
       <div className="bg-background min-h-screen">
         <div className="flex py-16 justify-center w-full items-center">
           <div
-            className={`absolute left-10 top-20 transition-transform duration-500 ${
+            className={`absolute left-2 md:left-10 top-5 md:top-20 transition-transform duration-500 ${
               clicked === "/" ? "-translate-x-[50vw]" : ""
             }`}
           >
             <SlideIn>
               <a
                 onClick={() => handleClick("/")}
-                className="text-3xl hover:text-button-textHover cursor-pointer"
+                className="text-xl md:text-3xl hover:text-button-textHover cursor-pointer"
               >
                 <FaArrowLeft size={20} className="inline-block ml-2" />
                 Tilbake

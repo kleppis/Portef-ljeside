@@ -41,14 +41,14 @@ const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
       <div className="bg-background min-h-screen overflow-hidden relative">
         <div className="flex py-16 justify-center items-center max-w-screen-2xl mx-auto overflow-hidden">
           <div
-            className={`absolute right-10 top-20 transition-transform duration-500 ${
+            className={`absolute right-2 md:right-10 top-5 md:top-20 transition-transform duration-500 ${
               clicked === "/" ? "translate-x-[50vw]" : ""
             }`}
           >
             <SlideIn>
               <a
                 onClick={() => handleClick("/")}
-                className="text-3xl hover:text-button-textHover cursor-pointer"
+                className="text-xl md:text-3xl hover:text-button-textHover cursor-pointer"
               >
                 Tilbake
                 <FaArrowRight size={20} className="inline-block ml-2" />
@@ -128,7 +128,7 @@ const About: React.FC<ProsjekterProps> = ({ onNavigate }) => {
           </SlideBox>
           <SlideBox delay={200} direction="left">
             <div
-              className="h-full w-full p-6 group/box cursor-pointer"
+              className="h-full w-full p-6 group/box cursor-pointer overflow-hidden"
               onClick={() =>
                 handleBoxClick(
                   <div className="flex h-[40rem] ">
