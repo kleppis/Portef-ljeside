@@ -9,6 +9,7 @@ import { ThemeProvider } from "./lib/theme/themeProvider";
 import Prosjekter from "./pages/prosjekter";
 import About from "./pages/about";
 import Home from "./pages/home";
+import NotFound from "./pages/notFound";
 
 const App: React.FC = () => {
   return (
@@ -40,6 +41,7 @@ const AppRoutes: React.FC = () => {
         element={<Prosjekter onNavigate={handleNavigation} />}
       />
       <Route path="/about" element={<About onNavigate={handleNavigation} />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
