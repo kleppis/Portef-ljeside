@@ -120,13 +120,13 @@ const About: React.FC = () => {
                       <p className="group-hover/box:text-secondary duration-500">
                         Jørgen Kleppan
                       </p>
-                      <h3 className="pt-2">Alder</h3>
+                      <h3 className="pt-2">Født</h3>
                       <p className="group-hover/box:text-secondary duration-500">
-                        24 år
+                        12.04.2000
                       </p>
-                      <h3 className="pt-2">Høyde</h3>
+                      <h3 className="pt-2">FTP</h3>
                       <p className="group-hover/box:text-secondary duration-500">
-                        178cm
+                        290w
                       </p>
                     </div>
                   </div>
