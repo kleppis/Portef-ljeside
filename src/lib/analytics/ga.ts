@@ -1,7 +1,7 @@
 // src/lib/analytics/ga.ts
 import ReactGA from "react-ga4";
 
-const GA_MEASUREMENT_ID = "G-SX4C6197Q4"; // Erstatt med din GA4 Measurement ID
+const GA_MEASUREMENT_ID = "G-RH8T2YCWTP"; // Erstatt med din GA4 Measurement ID
 
 // Initialiser Google Analytics
 export const initializeGA = () => {
