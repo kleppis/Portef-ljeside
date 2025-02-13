@@ -5,6 +5,7 @@ import Prosjekter from "./pages/prosjekter";
 import About from "./pages/about";
 import Home from "./pages/home";
 import NotFound from "./pages/notFound";
+import { Analytics } from "@vercel/analytics/react";
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App: React.FC = () => {
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Analytics />
       </Router>
     </ThemeProvider>
   );
