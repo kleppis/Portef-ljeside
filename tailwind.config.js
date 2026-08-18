@@ -4,53 +4,30 @@ import { lightTheme } from "./src/lib/theme/modes/light";
 import { darkTheme } from "./src/lib/theme/modes/dark";
 
 export default {
-  darkMode: "class", // Bruk "class" for å aktivere dark mode med klassen 'dark'
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // Sørger for å inkludere alle relevante filer
-  ],
+  darkMode: "class",
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       keyframes: {
-        "bounce-x": {
-          "0%, 100%": { transform: "translateX(0)" },
-          "50%": { transform: "translateX(10px)" },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(16px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        "bounce-x-left": {
-          "0%, 100%": { transform: "translateX(0)" },
-          "50%": { transform: "translateX(-10px)" },
-        },
-        "open-box": {
-          "0%": { maxWidth: "0" },
-          "100%": { maxWidth: "100%" },
-        },
-        ring: {
-          "0%": { transform: "rotate(0deg)" },
-          "50%": { transform: "rotate(-40deg)" },
-          "100%": { transform: "rotate(0deg)" },
-        },
-        scrollLoop: {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-120%)" },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
       },
       animation: {
-        "bounce-x": "bounce-x 1s infinite",
-        "bounce-x-left": "bounce-x-left 1s infinite",
-        "open-box": "open-box 2s ease-in-out forwards",
-        ring: "ring .5s infinite",
-        scrollLoop: "scrollLoop 5s linear infinite",
+        "fade-up": "fade-up 0.7s ease-out both",
+        "fade-in": "fade-in 0.5s ease-out both",
       },
-      spacing: {
-        128: "32rem", // Eksempel på ny spacing
-        144: "36rem",
-      },
-      borderRadius: {
-        xl: "1.5rem", // Ny grense for hjørneradius
+      maxWidth: {
+        page: "72rem",
       },
       fontFamily: {
-        "walter-turncoat": ['"Walter Turncoat"', "serif"],
-        "libre-bodoni": ['"Libre Bodoni"', "serif"],
+        sans: ['"Instrument Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
+        serif: ['"Instrument Serif"', "ui-serif", "Georgia", "serif"],
       },
     },
   },
@@ -60,7 +37,7 @@ export default {
         light: lightTheme,
         dark: darkTheme,
       },
-      { defaultTheme: "light" } // Sett standard tema
+      { defaultTheme: "light" }
     ),
   ],
 };

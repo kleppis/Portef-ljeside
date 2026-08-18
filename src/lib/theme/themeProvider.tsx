@@ -24,22 +24,25 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 
-export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<"light" | "dark">(
-    (localStorage.getItem("theme") as "light" | "dark") || "light"
-  );
+const getInitialTheme = (): "light" | "dark" => {
+  if (typeof window === "undefined") return "light";
+  const stored = localStorage.getItem("theme");
+  if (stored === "light" || stored === "dark") return stored;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
 
-  const [isToggled, setIsToggled] = useState(false);
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
+  const [theme, setTheme] = useState<"light" | "dark">(getInitialTheme);
 
   useEffect(() => {
     const root = document.documentElement;
 
     if (theme === "dark") {
       root.classList.add("dark");
-      setIsToggled(true);
     } else {
       root.classList.remove("dark");
-      setIsToggled(false);
     }
 
     localStorage.setItem("theme", theme);
@@ -50,7 +53,9 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, isToggled }}>
+    <ThemeContext.Provider
+      value={{ theme, toggleTheme, isToggled: theme === "dark" }}
+    >
       {children}
     </ThemeContext.Provider>
   );

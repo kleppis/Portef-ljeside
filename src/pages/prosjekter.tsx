@@ -1,166 +1,52 @@
-import React, { useState } from "react";
-import { SlideBox } from "../components/slideBox";
+import React from "react";
 import SlideIn from "../components/slideIn";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { ProjectCard } from "../components/projectCard";
+import { personalProjects, workProjects } from "../lib/content";
 
 const Prosjekter: React.FC = () => {
-  const [clicked, setClicked] = useState<string | null>(null);
-
-  const navigate = useNavigate();
-  const [, setIsAnimating] = useState(false);
-
-  const handleNavigation = (path: string) => {
-    setIsAnimating(true);
-    setClicked(path);
-    setTimeout(() => {
-      navigate(path);
-      setIsAnimating(false);
-    }, 300); // Juster forsinkelsen etter animasjonens lengde
-  };
-
   return (
-    <>
-      <div className="bg-background min-h-screen">
-        <div className="flex py-16 justify-center w-full items-center">
-          <div
-            className={`absolute left-2 md:left-10 top-5 md:top-20 transition-transform duration-500 ${
-              clicked === "/" ? "-translate-x-[50vw]" : ""
-            }`}
-          >
-            <SlideIn>
-              <a
-                onClick={() => handleNavigation("/")}
-                className="text-xl md:text-3xl hover:text-button-textHover cursor-pointer"
-              >
-                <FaArrowLeft size={20} className="inline-block ml-2" />
-                Tilbake
-              </a>
-            </SlideIn>
-          </div>
-          <h1 className="text-center  drop-shadow-lg uppercase ">Prosjekter</h1>
-        </div>
-        <div className=" flex flex-col md:flex-row items-center justify-center overflow-hidden md:space-x-5 py-10 md:px-10 md:py-36 space-y-7 md:space-y-0">
-          <SlideBox>
-            <div className="w-full h-full rounded-lg p-6 group/box">
-              <img
-                src="/assets/images/S&M3.svg"
-                alt="logo"
-                className="absolute -top-5 w-10 -left-5 drop-shadow-lg grayscale group-hover/box:grayscale-0 transition-all duration-500"
-              />
-              <div className="flex flex-col h-full justify-between">
-                <div>
-                  <h2 className="text-4xl font-bold">Maria & Sebastian</h2>
-                  <SlideIn delay={200}>
-                    <a
-                      href="https://www.maria-sebastian.no/"
-                      className="text-link flex group/link items-center"
-                    >
-                      maria-sebastian.no
-                      <FaArrowRight
-                        className="group-hover/link:animate-bounce-x ms-2"
-                        size={10}
-                      />
-                    </a>
-                  </SlideIn>
-                  <p className="pt-5">
-                    Bryllupsside for et par som skal gifte seg til sommeren.
-                    Siden er bygget på React JS
-                  </p>
-                </div>
-                <div className="flex justify-between w-full font-walter-turncoat">
-                  <div>
-                    <p>
-                      <strong>Når:</strong> Høsten 2024
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-3xl grayscale group-hover/box:grayscale-0 duration-500">
-                      👰‍♀️
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </SlideBox>
-          <SlideBox delay={200}>
-            <div className="h-full w-full p-6 group/box">
-              <img
-                src="/assets/images/oslomet-logo.png"
-                alt="logo"
-                className="absolute -top-5 w-10 -left-5 drop-shadow-lg rounded-full grayscale group-hover/box:grayscale-0 transition-all duration-500"
-              />
-              <div className="flex flex-col h-full justify-between">
-                <div>
-                  <h2 className="text-4xl font-bold">Software Engineer</h2>
+    <div>
+      <section className="page-wrap pb-6 pt-14 md:pb-8 md:pt-24">
+        <SlideIn>
+          <p className="section-label">Portefølje</p>
+          <h1 className="mt-4">Utvalgt arbeid</h1>
+          <p className="mt-5 max-w-xl text-lg text-muted">
+            Arbeid fra jobb og egne, personlige prosjekter. Nettsider, oppdrag
+            og løsninger jeg har bygget.
+          </p>
+        </SlideIn>
+      </section>
 
-                  <p className="text-end opacity-80">Student</p>
-                  <p className="pt-5">
-                    Studerer Software Engineering ved OsloMet. Har jobbet med
-                    databaser, webutvikling, matte, algoritmer, og mye mer.
-                  </p>
-                </div>
-                <div className="flex justify-between w-full font-walter-turncoat">
-                  <div>
-                    <p>
-                      <strong>Når:</strong> 2023 - 2026
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-3xl grayscale group-hover/box:grayscale-0 duration-500">
-                      📚
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </SlideBox>
-          <SlideBox delay={300}>
-            <div className="w-full h-full p-6 group/box">
-              <img
-                src="/assets/logo/hv_grønn.svg"
-                alt="logo"
-                className="absolute -top-5 w-10 -left-5 drop-shadow-lg  aspect-square grayscale group-hover/box:grayscale-0 transition-all duration-500"
-              />
-              <div className="flex flex-col justify-between h-full">
-                <div>
-                  <h2 className="text-4xl font-bold">Kleppan IT</h2>
-                  <SlideIn delay={10}>
-                    <a
-                      href="https://www.kleppanit.no/"
-                      className="text-link flex group/link items-center"
-                    >
-                      kleppanit.no
-                      <FaArrowRight
-                        className="group-hover/link:animate-bounce-x ms-2"
-                        size={10}
-                      />
-                    </a>
-                  </SlideIn>
-                  <p className="pt-5">
-                    Et sideprosjekt jeg jobber med for å kunne anvende det jeg
-                    lærer på studiet i praksis. Her prøver jeg å tilby tjenester
-                    innen webutvikling og IT-support.
-                  </p>
-                </div>
-                <div className="flex justify-between w-full font-walter-turncoat">
-                  <div>
-                    <p>
-                      <strong>Når:</strong> 2024 - Nå
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-3xl grayscale group-hover/box:grayscale-0 duration-500">
-                      💻
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </SlideBox>
-        </div>
-      </div>
-    </>
+      <section className="page-wrap pb-12 md:pb-16">
+        <SlideIn>
+          <h2>Arbeidsprosjekter</h2>
+        </SlideIn>
+        {workProjects.map((project, i) => (
+          <SlideIn key={project.id} delay={i * 70}>
+            <ProjectCard
+              project={project}
+              index={String(i + 1).padStart(2, "0")}
+              featured
+            />
+          </SlideIn>
+        ))}
+      </section>
+
+      <section className="page-wrap pb-20 md:pb-28">
+        <SlideIn>
+          <h2>Personlige prosjekter</h2>
+        </SlideIn>
+        {personalProjects.map((project, i) => (
+          <SlideIn key={project.id} delay={i * 70}>
+            <ProjectCard
+              project={project}
+              index={String(i + 1).padStart(2, "0")}
+              featured
+            />
+          </SlideIn>
+        ))}
+      </section>
+    </div>
   );
 };
 
