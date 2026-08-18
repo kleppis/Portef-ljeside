@@ -49,6 +49,18 @@ export const workProjects: Project[] = [
     category: "work",
   },
   {
+    id: "logisk-brist",
+    title: "Logisk Brist",
+    year: "okt. 2024 — mai 2025",
+    description:
+      "Utvikler hos Logisk Brist, et kreativt byrå som jobber med strategi, design og teknologi.",
+    longDescription:
+      "Som utvikler hos Logisk Brist jobbet jeg med webutvikling og digitale løsninger for byråets kunder. Logisk Brist er et kreativt byrå i Oslo som kombinerer strategi, design og teknologi.",
+    tags: ["Webutvikling", "Frontend"],
+    monogram: "LB",
+    category: "work",
+  },
+  {
     id: "simplylearn",
     title: "SimplyLearn",
     year: "2024",
@@ -148,6 +160,13 @@ export const experience = [
     date: "jun. 2025 — des. 2025",
     location: "Guard Automation",
     description: "Jobbet med å lage en intern applikasjon i .NET.",
+  },
+  {
+    title: "Utvikler",
+    date: "okt. 2024 — mai 2025",
+    location: "Logisk Brist",
+    description:
+      "Jobbet med webutvikling og digitale løsninger for et kreativt byrå.",
   },
   {
     title: "Utvikler",
