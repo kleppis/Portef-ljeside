@@ -1,24 +1,39 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 interface SlideInProps {
   children: ReactNode;
   delay?: number;
+  className?: string;
 }
 
-const SlideIn: React.FC<SlideInProps> = ({ children, delay = 0 }) => {
+const SlideIn: React.FC<SlideInProps> = ({
+  children,
+  delay = 0,
+  className = "",
+}) => {
+  const [failsafe, setFailsafe] = useState(false);
   const { ref, inView } = useInView({
-    triggerOnce: true, // Animér bare én gang
-    threshold: 0.1, // Start animasjon når 10% av komponenten er synlig
+    triggerOnce: true,
+    threshold: 0,
+    rootMargin: "120px",
+    fallbackInView: true,
   });
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setFailsafe(true), 800);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  const visible = inView || failsafe;
 
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transform transition-transform duration-700 ${
-        inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-      }`}
+      style={{ transitionDelay: visible ? `${delay}ms` : "0ms" }}
+      className={`transform transition-all duration-700 ease-out ${
+        visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+      } ${className}`}
     >
       {children}
     </div>

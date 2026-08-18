@@ -1,14 +1,16 @@
 import { colors } from "../colors";
 
 export const lightTheme = {
-  primary: colors.stone[800],
-  secondary: colors.red[400],
-  background: colors.blue[200],
-  text: colors.stone[800],
-  divider: colors.stone[500],
+  primary: colors.brand[600],
+  secondary: colors.brand[500],
+  background: colors.cream[50],
+  surface: "#FFFFFF",
+  text: colors.cream[900],
+  muted: colors.stone[600],
+  divider: colors.cream[200],
   button: {
-    textHover: colors.stone[400],
+    textHover: colors.brand[700],
   },
-  link: colors.blue[500],
-  linkHover: colors.blue[300],
+  link: colors.brand[600],
+  linkHover: colors.brand[700],
 };

@@ -9,23 +9,26 @@ import NotFound from "./pages/notFound";
 import { Analytics } from "@vercel/analytics/react";
 import RouteTracker from "./lib/analytics/RouteTracker";
 import { initializeGA } from "./lib/analytics/ga";
+import { Layout } from "./components/layout";
 
 const App: React.FC = () => {
   useEffect(() => {
-    initializeGA(); // Start Google Analytics ved oppstart
+    initializeGA();
   }, []);
 
   return (
     <ThemeProvider>
       <Router>
-        <RouteTracker /> {/* Spor sidevisninger */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/prosjekter" element={<Prosjekter />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Analytics /> {/* Vercel Analytics */}
+        <RouteTracker />
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/prosjekter" element={<Prosjekter />} />
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Layout>
+        <Analytics />
       </Router>
     </ThemeProvider>
   );
